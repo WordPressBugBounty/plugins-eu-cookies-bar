@@ -3,7 +3,7 @@ Contributors: villatheme, mrt3vn
 Donate link: https://www.villatheme.com/donate
 Tags: eu cookies bar, eu cookie law, cookies gdpr, cookie consent, cookie policy generator
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -168,6 +168,9 @@ EU Cookies Bar is a WordPress plugin that helps website owners to meet the oblig
 5. Visitors can views cookies list and change their mind whenever they want
 
 == Changelog ==
+/*1.0.17 - 2024.11.25*/
+- Updated: Compatible with WP 6.7
+
 /*1.0.16 - 2024.07.23*/
 - Updated: Compatible with WP 6.6
 

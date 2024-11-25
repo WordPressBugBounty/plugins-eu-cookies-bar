@@ -1,3 +1,6 @@
+/*1.0.17 - 2024.11.25*/
+- Updated: Compatible with WP 6.7
+
 /*1.0.16 - 2024.07.23*/
 - Updated: Compatible with WP 6.6
 
