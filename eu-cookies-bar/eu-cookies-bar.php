@@ -3,22 +3,22 @@
  * Plugin Name: EU Cookies Bar
  * Plugin URI: https://villatheme.com/extensions/eu-cookies-bar
  * Description: Simple cookie bar to make your website GDPR(General Data Protection Regulation) compliant(EU Cookie Law) and more.
- * Version: 1.0.17
+ * Version: 1.0.18
  * Author: VillaTheme
  * Author URI: http://villatheme.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: eu-cookies-bar
- * Copyright 2018-2024 VillaTheme.com. All rights reserved.
+ * Copyright 2018-2025 VillaTheme.com. All rights reserved.
  * Requires at least: 5.0
- * Tested up to: 6.7
+ * Tested up to: 6.8
  * Requires PHP: 7.0
  **/
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-define( 'EU_COOKIES_BAR_VERSION', '1.0.17' );
+define( 'EU_COOKIES_BAR_VERSION', '1.0.18' );
 
 /**
  * Class EU_COOKIES_BAR
