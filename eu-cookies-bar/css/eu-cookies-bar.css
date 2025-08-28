@@ -92,6 +92,7 @@ html.vi_ecb-noscroll {
 .eu-cookies-bar-cookies-bar-message {
     display: table-cell;
     padding-right: 20px;
+    align-content: center;
 }
 
 .eu-cookies-bar-cookies-bar-button-container {
@@ -328,10 +329,47 @@ html.vi_ecb-noscroll {
     display: none;
 }
 
-.eu-cookies-bar-cookies-bar-settings-save-button {
+.eu-cookies-bar-popup-setting-button {
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+.eu-cookies-bar-popup-setting-button.eu-cookies-bar-popup-align-mid {
+    justify-content: space-between;
+}
+
+.eu-cookies-bar-popup-setting-button.eu-cookies-bar-popup-align-end {
+    justify-content: flex-end;
+}
+
+.eu-cookies-bar-popup-setting-decline-button-wrap {
+    height: 100%;
+    display: flex;
+}
+
+.eu-cookies-bar-cookies-bar-settings-decline-button {
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.eu-cookies-bar-popup-setting-acc-button-wrap {
+    display: flex;
+    gap: 10px;
+}
+
+.eu-cookies-bar-cookies-bar-settings-save-button {
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.eu-cookies-bar-cookies-bar-settings-accept-button {
     padding: 4px 8px;
     cursor: pointer;
     border-radius: 3px;

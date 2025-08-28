@@ -87,7 +87,7 @@ jQuery(document).ready(function () {
     jQuery('#eu_cookies_bar_cookies_bar_button_accept_color').iris({
         change: function (event, ui) {
             jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
-            jQuery('.eu-cookies-bar-cookies-bar-button-accept').css({'color': ui.color.toString()})
+            jQuery('.eu-cookies-bar-cookies-bar-button-accept').css({'color': ui.color.toString()});
         },
         hide: true,
         border: true
@@ -100,7 +100,7 @@ jQuery(document).ready(function () {
     jQuery('#eu_cookies_bar_cookies_bar_button_accept_bg_color').iris({
         change: function (event, ui) {
             jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
-            jQuery('.eu-cookies-bar-cookies-bar-button-accept').css({'background': ui.color.toString()})
+            jQuery('.eu-cookies-bar-cookies-bar-button-accept').css({'background': ui.color.toString()});
         },
         hide: true,
         border: true
@@ -112,7 +112,7 @@ jQuery(document).ready(function () {
     jQuery('#eu_cookies_bar_cookies_bar_button_decline_color').iris({
         change: function (event, ui) {
             jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
-            jQuery('.eu-cookies-bar-cookies-bar-button-decline').css({'color': ui.color.toString()})
+            jQuery('.eu-cookies-bar-cookies-bar-button-decline').css({'color': ui.color.toString()});
         },
         hide: true,
         border: true
@@ -125,7 +125,7 @@ jQuery(document).ready(function () {
     jQuery('#eu_cookies_bar_cookies_bar_button_decline_bg_color').iris({
         change: function (event, ui) {
             jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
-            jQuery('.eu-cookies-bar-cookies-bar-button-decline').css({'background': ui.color.toString()})
+            jQuery('.eu-cookies-bar-cookies-bar-button-decline').css({'background': ui.color.toString()});
         },
         hide: true,
         border: true
@@ -137,7 +137,7 @@ jQuery(document).ready(function () {
     jQuery('#eu_cookies_bar_user_cookies_settings_heading_color').iris({
         change: function (event, ui) {
             jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
-            jQuery('.eu-cookies-bar-cookies-bar-settings-header').css({'color': ui.color.toString()})
+            jQuery('.eu-cookies-bar-cookies-bar-settings-header').css({'color': ui.color.toString()});
         },
         hide: true,
         border: true
@@ -150,7 +150,7 @@ jQuery(document).ready(function () {
     jQuery('#eu_cookies_bar_user_cookies_settings_heading_bg_color').iris({
         change: function (event, ui) {
             jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
-            jQuery('.eu-cookies-bar-cookies-bar-settings-header').css({'background': ui.color.toString()})
+            jQuery('.eu-cookies-bar-cookies-bar-settings-header').css({'background': ui.color.toString()});
         },
         hide: true,
         border: true
@@ -162,7 +162,7 @@ jQuery(document).ready(function () {
     jQuery('#eu_cookies_bar_user_cookies_settings_button_save_color').iris({
         change: function (event, ui) {
             jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
-            jQuery('.eu-cookies-bar-cookies-bar-settings-save-button').css({'color': ui.color.toString()})
+            jQuery('.eu-cookies-bar-cookies-bar-settings-save-button').css({'color': ui.color.toString()});
         },
         hide: true,
         border: true
@@ -175,7 +175,7 @@ jQuery(document).ready(function () {
     jQuery('#eu_cookies_bar_user_cookies_settings_button_save_bg_color').iris({
         change: function (event, ui) {
             jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
-            jQuery('.eu-cookies-bar-cookies-bar-settings-save-button').css({'background': ui.color.toString()})
+            jQuery('.eu-cookies-bar-cookies-bar-settings-save-button').css({'background': ui.color.toString()});
         },
         hide: true,
         border: true
@@ -187,25 +187,89 @@ jQuery(document).ready(function () {
     jQuery('body').on('click', function () {
         jQuery('.iris-picker').hide();
     });
+
+    jQuery('#eu_cookies_bar_privacy_policy_color').iris({
+        change: function (event, ui) {
+            jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
+            jQuery('.eu-cookies-bar-policy-button').css({'color': ui.color.toString()});
+        },
+        hide: true,
+        border: true
+    }).on('click', function (e) {
+        jQuery('.iris-picker').hide();
+        jQuery(this).parent().find('.iris-picker').show();
+        e.stopPropagation();
+    });
+
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_accept_color').iris({
+        change: function (event, ui) {
+            jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
+            jQuery('.eu-cookies-bar-cookies-bar-settings-accept-button').css({'color': ui.color.toString()});
+        },
+        hide: true,
+        border: true
+    }).on('click', function (e) {
+        jQuery('.iris-picker').hide();
+        jQuery(this).parent().find('.iris-picker').show();
+        e.stopPropagation();
+    });
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_accept_bg_color').iris({
+        change: function (event, ui) {
+            jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
+            jQuery('.eu-cookies-bar-cookies-bar-settings-accept-button').css({'background': ui.color.toString()});
+        },
+        hide: true,
+        border: true
+    }).on('click', function (e) {
+        jQuery('.iris-picker').hide();
+        jQuery(this).parent().find('.iris-picker').show();
+        e.stopPropagation();
+    });
+
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_decline_color').iris({
+        change: function (event, ui) {
+            jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
+            jQuery('.eu-cookies-bar-cookies-bar-settings-decline-button').css({'color': ui.color.toString()});
+        },
+        hide: true,
+        border: true
+    }).on('click', function (e) {
+        jQuery('.iris-picker').hide();
+        jQuery(this).parent().find('.iris-picker').show();
+        e.stopPropagation();
+    });
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_decline_bg_color').iris({
+        change: function (event, ui) {
+            jQuery(this).parent().find('.color-picker').css({backgroundColor: ui.color.toString()});
+            jQuery('.eu-cookies-bar-cookies-bar-settings-decline-button').css({'background': ui.color.toString()});
+        },
+        hide: true,
+        border: true
+    }).on('click', function (e) {
+        jQuery('.iris-picker').hide();
+        jQuery(this).parent().find('.iris-picker').show();
+        e.stopPropagation();
+    });
+
 //    cookies bar preview
     if (window.location.href.indexOf('#general') !== -1) {
         jQuery('.eu-cookies-bar-cookies-bar-wrap').fadeOut(500);
     }
 
     jQuery('#eu_cookies_bar_cookies_bar_font_size').on('change', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'font-size': jQuery(this).val() + 'px'})
+        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'font-size': jQuery(this).val() + 'px'});
     });
     jQuery('#eu_cookies_bar_cookies_bar_margin').on('change', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'margin': jQuery(this).val() + 'px'})
+        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'margin': jQuery(this).val() + 'px'});
     });
     jQuery('#eu_cookies_bar_cookies_bar_padding').on('change', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'padding': jQuery(this).val() + 'px'})
+        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'padding': jQuery(this).val() + 'px'});
     });
     jQuery('#eu_cookies_bar_cookies_bar_border_radius').on('change', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'border-radius': jQuery(this).val() + 'px'})
+        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'border-radius': jQuery(this).val() + 'px'});
     });
     jQuery('#eu_cookies_bar_cookies_bar_opacity').on('change', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'opacity': jQuery(this).val()})
+        jQuery('.eu-cookies-bar-cookies-bar-wrap').css({'opacity': jQuery(this).val()});
     });
     jQuery('#eu_cookies_bar_cookies_bar_show_button_decline').on('change', function () {
         if (jQuery(this).prop('checked')) {
@@ -235,21 +299,67 @@ jQuery(document).ready(function () {
             jQuery('.eu-cookies-bar-cookies-bar-button-settings').toggleClass('eu-cookies-bar-cookies-bar-button-hide');
         }
     });
+
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_save_enable').on('change', function () {
+        if (jQuery(this).prop('checked')) {
+            jQuery('.eu-cookies-bar-cookies-bar-settings-save-button').removeClass('eu-cookies-bar-cookies-bar-button-hide');
+        } else {
+            jQuery('.eu-cookies-bar-cookies-bar-settings-save-button').addClass('eu-cookies-bar-cookies-bar-button-hide');
+        }
+    });
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_accept_enable').on('change', function () {
+        if (jQuery(this).prop('checked')) {
+            jQuery('.eu-cookies-bar-cookies-bar-settings-accept-button').removeClass('eu-cookies-bar-cookies-bar-button-hide');
+        } else {
+            jQuery('.eu-cookies-bar-cookies-bar-settings-accept-button').addClass('eu-cookies-bar-cookies-bar-button-hide');
+        }
+    });
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_decline_enable').on('change', function () {
+        if (jQuery(this).prop('checked')) {
+            jQuery('.eu-cookies-bar-popup-setting-decline-button-wrap').removeClass('eu-cookies-bar-cookies-bar-button-hide');
+            jQuery('.eu-cookies-bar-popup-setting-button').addClass('eu-cookies-bar-popup-align-mid').removeClass('eu-cookies-bar-popup-align-end');
+        } else {
+            jQuery('.eu-cookies-bar-popup-setting-decline-button-wrap').addClass('eu-cookies-bar-cookies-bar-button-hide');
+            jQuery('.eu-cookies-bar-popup-setting-button').addClass('eu-cookies-bar-popup-align-end').removeClass('eu-cookies-bar-popup-align-mid');
+        }
+    });
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_save_label').on('input', function () {
+        jQuery('.eu-cookies-bar-cookies-bar-settings-save-button').html(jQuery(this).val());
+    });
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_accept_label').on('input', function () {
+        jQuery('.eu-cookies-bar-cookies-bar-settings-accept-button').html(jQuery(this).val());
+    });
+    jQuery('#eu_cookies_bar_user_cookies_settings_button_decline_label').on('input', function () {
+        jQuery('.eu-cookies-bar-popup-setting-decline-button-wrap .eu-cookies-bar-cookies-bar-settings-decline-button').html(jQuery(this).val());
+    });
+
     jQuery('#eu_cookies_bar_cookies_bar_message').on('input', function () {
         jQuery('.eu-cookies-bar-cookies-bar-message div').html(jQuery(this).val());
     });
 //    button
     jQuery('#eu_cookies_bar_cookies_bar_button_accept_border_radius').on('change', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-button-accept').css({'border-radius': jQuery(this).val() + 'px'})
+        jQuery('.eu-cookies-bar-cookies-bar-button-accept').css({'border-radius': jQuery(this).val() + 'px'});
     });
     jQuery('#eu_cookies_bar_cookies_bar_button_decline_border_radius').on('change', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-button-decline').css({'border-radius': jQuery(this).val() + 'px'})
+        jQuery('.eu-cookies-bar-cookies-bar-button-decline').css({'border-radius': jQuery(this).val() + 'px'});
     });
     jQuery('#eu_cookies_bar_cookies_bar_button_accept_title').on('keyup', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-button-accept span').html(jQuery(this).val())
+        jQuery('.eu-cookies-bar-cookies-bar-button-accept span').html(jQuery(this).val());
     });
     jQuery('#eu_cookies_bar_cookies_bar_button_decline_title').on('keyup', function () {
-        jQuery('.eu-cookies-bar-cookies-bar-button-decline span').html(jQuery(this).val())
+        jQuery('.eu-cookies-bar-cookies-bar-button-decline span').html(jQuery(this).val());
+    });
+    jQuery('#eu_cookies_bar_privacy_policy_url').on('keyup', function () {
+        jQuery('.eu-cookies-bar-cookies-bar-message .eu-cookies-bar-policy-button').attr('href', jQuery(this).val());
+    });
+    jQuery('#eu_cookies_bar_privacy_policy_label').on('keyup', function () {
+        jQuery('.eu-cookies-bar-cookies-bar-message .eu-cookies-bar-policy-button').html(jQuery(this).val());
+    });
+    jQuery('#eu_cookies_bar_bar_btn_padding').on('change', function () {
+        jQuery('.eu-cookies-bar-cookies-bar-button-wrap .eu-cookies-bar-cookies-bar-button').css({'padding': jQuery(this).val() + 'px'});
+    });
+    jQuery('#eu_cookies_bar_bar_btn_radius').on('change', function () {
+        jQuery('.eu-cookies-bar-cookies-bar-button-wrap .eu-cookies-bar-cookies-bar-button').css({'border-radius': jQuery(this).val() + 'px'});
     });
 
 //    cookies settings form

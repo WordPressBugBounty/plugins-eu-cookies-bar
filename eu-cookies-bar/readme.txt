@@ -141,6 +141,8 @@ EU Cookies Bar is a WordPress plugin that helps website owners to meet the oblig
 
 ### MAY BE YOU NEED
 
+[VARGAL - Additional Variation Gallery for Woo](https://wordpress.org/plugins/vargal-additional-variation-gallery-for-woo)
+
 [AFFI – Affiliate Marketing for WooCommerce](https://wordpress.org/plugins/affi-affiliate-marketing-for-woo)
 
 [9Map – Map Multi Locations](https://wordpress.org/plugins/9map-map-multi-locations)
@@ -272,13 +274,16 @@ EU Cookies Bar is a WordPress plugin that helps website owners to meet the oblig
 == Frequently Asked Questions ==
 
 == Screenshots ==
-1. Backend with live preview
-2. Frontend cookies bar with position bottom
-3. Frontend cookies bar with position bottom left
-4. Responsive on mobile
-5. Visitors can views cookies list and change their mind whenever they want
+1. Cookie bar on bottom right
+2. Cookie bar on bottom
+3. Setting popup category with tab
+4. Setting popup list of category
 
 == Changelog ==
+/*1.0.19 - 2025.08.28*/
+- Updated: Minify some source code
+- Updated: Add some option from premium version
+
 /*1.0.18 - 2025.04.18*/
 - Updated: Compatible with WP 6.8
 

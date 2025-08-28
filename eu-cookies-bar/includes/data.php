@@ -102,7 +102,6 @@ If you log-in to our sites using a twitter log-in, we receive your avatar (the s
 			'enable'                                     => '1',
 			'expire'                                     => '180',
 			'privacy_policy'                             => $privacy,
-			'privacy_policy_url'                         => '',
 			'strictly_necessary'                         => 'wordpress_test_cookie,woocommerce_cart_hash',
 			'strictly_necessary_family'                  => 'PHPSESSID,wordpress_sec_,wp-settings-,wordpress_logged_in_,wp_woocommerce_session_',
 			'cookies_bar_message'                        => 'We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.',
@@ -128,12 +127,30 @@ If you log-in to our sites using a twitter log-in, we receive your avatar (the s
 			'cookies_bar_border_radius'                  => 0,
 			'cookies_bar_padding'                        => 0,
 			'cookies_bar_margin'                         => 0,
+			'bar_btn_padding'                            => '',
+			'bar_btn_radius'                             => '',
+			'privacy_policy_url'                         => '',
+			'privacy_policy_label'                       => 'View more',
+			'privacy_policy_color'                       => '',
+			'display_delay'                              => 0,
+			'dismiss_timeout'                            => '',
+			'conditional_tag'                            => '',
 			'user_cookies_settings_enable'               => '1',
 			'user_cookies_settings_heading_title'        => 'Privacy & Cookie policy',
 			'user_cookies_settings_heading_color'        => '#ffffff',
 			'user_cookies_settings_heading_bg_color'     => '#249fd0',
+			'user_cookies_settings_button_save_enable'   => 1,
+			'user_cookies_settings_button_save_label'    => 'Save settings',
 			'user_cookies_settings_button_save_color'    => '#ffffff',
 			'user_cookies_settings_button_save_bg_color' => '#249fd0',
+			'user_cookies_settings_button_accept_enable'   => 0,
+			'user_cookies_settings_button_accept_label'    => 'Accept All',
+			'user_cookies_settings_button_accept_color'    => '#ffffff',
+			'user_cookies_settings_button_accept_bg_color' => '#0ec50e',
+			'user_cookies_settings_button_decline_enable'   => 0,
+			'user_cookies_settings_button_decline_label'    => 'Decline All',
+			'user_cookies_settings_button_decline_color'    => '#ffffff',
+			'user_cookies_settings_button_decline_bg_color' => '#ff6666',
 			'user_cookies_settings_bar_position'         => 'right',
 			'custom_css'                                 => '',
 			'block_until_accept'                         => '',
@@ -155,5 +172,28 @@ If you log-in to our sites using a twitter log-in, we receive your avatar (the s
 		}
 
 		return self::$instance;
+	}
+
+	public function assign_page() {
+		$assign_page = $this->get_params('conditional_tag' );
+		if ( $assign_page ) {
+			if ( stristr( $assign_page, "return" ) === false ) {
+				$assign_page = "return (" . $assign_page . ");";
+			}
+			try {
+				$logic_show = eval( $assign_page );// phpcs:ignore Generic.PHP.ForbiddenFunctions.Found
+			} catch ( \Error $e ) {
+
+				$logic_show = false;
+			} catch ( \Exception $e ) {
+
+				$logic_show = false;
+			}
+			if ( ! $logic_show ) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 }

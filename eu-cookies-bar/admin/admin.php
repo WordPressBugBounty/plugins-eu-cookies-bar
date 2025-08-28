@@ -99,6 +99,15 @@ class EU_COOKIES_BAR_Admin_Admin {
                         </div>
                     </div>
                     <div class="field">
+                        <label><?php esc_html_e( 'Reject expire (days)', 'eu-cookies-bar' ); ?></label>
+                        <div class="vi-ui"
+                             data-tooltip="<?php esc_attr_e( 'Set number of days after reject cookie on site.', 'eu-cookies-bar' ) ?>">
+                            <a class="vi-ui button yellow"
+                               href="https://villatheme.com/extensions/"
+                               target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                        </div>
+                    </div>
+                    <div class="field">
                         <label for="eu_cookies_bar_strictly_necessary"><?php esc_html_e( 'Strictly necessary cookies', 'eu-cookies-bar' ); ?></label>
                         <div class="vi-ui input"
                              data-tooltip="<?php esc_attr_e( 'These are very important cookies that users can not disable them. Enter cookies names separated with commas(,)', 'eu-cookies-bar' ) ?>"
@@ -119,10 +128,38 @@ class EU_COOKIES_BAR_Admin_Admin {
                         </div>
                     </div>
                     <div class="field">
-                        <label for="eu_cookies_bar_privacy_policy_url"><?php esc_html_e( 'Privacy page url', 'eu-cookies-bar' ); ?></label>
-                        <input type="text" name="eu_cookies_bar_privacy_policy_url"
-                               id="eu_cookies_bar_privacy_policy_url"
-                               value="<?php echo esc_attr( $this->settings->get_params( 'privacy_policy_url' ) ? htmlentities( $this->settings->get_params( 'privacy_policy_url' ) ) : ( get_option( 'wp_page_for_privacy_policy', '' ) ? htmlentities( get_page_link( (int) get_option( 'wp_page_for_privacy_policy', '' ) ) ) : '' ) ) ?>">
+                        <label><?php esc_html_e( 'Integration with Google Tag Manager', 'eu-cookies-bar' ); ?></label>
+                        <div class="vi-ui"
+                             data-tooltip="<?php esc_attr_e( 'GTM is notified by pushing a variable (cookie category data) and event to the dataLayer.', 'eu-cookies-bar' ) ?>">
+                            <a class="vi-ui button yellow"
+                               href="https://villatheme.com/extensions/"
+                               target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label><?php esc_html_e( 'Integration with Meta Pixel', 'eu-cookies-bar' ); ?></label>
+                        <div class="vi-ui input"
+                             data-tooltip="<?php esc_attr_e( 'Meta Pixel is detect site cookie data by Pixel Dataset ID and push data to a variable.', 'eu-cookies-bar' ) ?>">
+                            <a class="vi-ui button yellow"
+                               href="https://villatheme.com/extensions/"
+                               target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label><?php esc_html_e( 'Control cookie by category', 'eu-cookies-bar' ); ?></label>
+                        <div class="vi-ui" data-tooltip="<?php esc_attr_e( 'Use custom category to grouped cookie.', 'eu-cookies-bar' ) ?>">
+                            <a class="vi-ui button yellow"
+                               href="https://villatheme.com/extensions/"
+                               target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label><?php esc_html_e( 'Detect country', 'eu-cookies-bar' ); ?></label>
+                        <div class="vi-ui" data-tooltip="<?php esc_attr_e( 'Detect user country and set language matching with it.', 'eu-cookies-bar' ) ?>">
+                            <a class="vi-ui button yellow"
+                               href="https://villatheme.com/extensions/"
+                               target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                        </div>
                     </div>
                     <div class="field">
                         <label for="eu_cookies_bar_privacy_policy"><?php esc_html_e( 'Your privacy policy', 'eu-cookies-bar' ); ?></label>
@@ -136,6 +173,14 @@ class EU_COOKIES_BAR_Admin_Admin {
 						<?php
 						$cookies_bar_message = $this->settings->get_params( 'cookies_bar_message' );
 						wp_editor( $cookies_bar_message, 'eu_cookies_bar_cookies_bar_message' ); ?>
+                    </div>
+                    <div class="field" data-tooltip="<?php esc_attr_e( 'Set text for each added language.', 'eu-cookies-bar' ) ?>">
+                        <label><?php esc_html_e( 'Localize text and message', 'eu-cookies-bar' ); ?></label>
+                        <div class="vi-ui">
+                            <a class="vi-ui button yellow"
+                               href="https://villatheme.com/extensions/"
+                               target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                        </div>
                     </div>
                     <div class="equal width fields">
                         <div class="field">
@@ -234,6 +279,14 @@ class EU_COOKIES_BAR_Admin_Admin {
                                            value="bottom_right" <?php checked( $this->settings->get_params( 'cookies_bar_position' ), 'bottom_right' ) ?>><label><?php esc_html_e( 'Bottom right', 'eu-cookies-bar' ) ?></label>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label><?php esc_html_e( 'Top left, Top right position', 'eu-cookies-bar' ); ?></label>
+                        <div class="vi-ui">
+                            <a class="vi-ui button yellow"
+                               href="https://villatheme.com/extensions/"
+                               target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
                         </div>
                     </div>
 
@@ -342,9 +395,50 @@ class EU_COOKIES_BAR_Admin_Admin {
                                    max="1" step="0.1"
                                    value="<?php echo esc_attr( $this->settings->get_params( 'cookies_bar_opacity' ) ); ?>">
                         </div>
-
-
                     </div>
+                    <div class="equal width fields">
+                        <div class="field">
+                            <label for="eu_cookies_bar_bar_btn_padding"><?php esc_html_e( 'Button padding(px)', 'eu-cookies-bar' ); ?></label>
+                            <input type="number" class="color-picker" name="eu_cookies_bar_bar_btn_padding"
+                                   id="eu_cookies_bar_bar_btn_padding"
+                                   value="<?php echo esc_attr( $this->settings->get_params( 'bar_btn_padding' ) ); ?>">
+                        </div>
+                        <div class="field">
+                            <label for="eu_cookies_bar_bar_btn_radius"><?php esc_html_e( 'Button border radius(px)', 'eu-cookies-bar' ); ?></label>
+                            <input type="number" class="color-picker" name="eu_cookies_bar_bar_btn_radius"
+                                   id="eu_cookies_bar_bar_btn_radius"
+                                   value="<?php echo esc_attr( $this->settings->get_params( 'bar_btn_radius' ) ); ?>">
+                        </div>
+                    </div>
+
+                    <h4 class="vi-ui dividing header">
+                        <label><?php esc_html_e( '"Privacy" button design', 'eu-cookies-bar' ); ?></label>
+                    </h4>
+                    <div class="equal width fields">
+                        <div class="field">
+                            <label for="eu_cookies_bar_privacy_policy_url"><?php esc_html_e( 'Privacy page url', 'eu-cookies-bar' ); ?></label>
+                            <input type="text" name="eu_cookies_bar_privacy_policy_url"
+                                   id="eu_cookies_bar_privacy_policy_url"
+                                   value="<?php echo esc_attr( $this->settings->get_params( 'privacy_policy_url' ) ? htmlentities( $this->settings->get_params( 'privacy_policy_url' ) ) : ( get_option( 'wp_page_for_privacy_policy', '' ) ? htmlentities( get_page_link( (int) get_option( 'wp_page_for_privacy_policy', '' ) ) ) : '' ) ) ?>">
+                        </div>
+                        <div class="field">
+                            <label for="eu_cookies_bar_privacy_policy_label"><?php esc_html_e( 'Privacy label', 'eu-cookies-bar' ); ?></label>
+                            <input type="text" name="eu_cookies_bar_privacy_policy_label"
+                                   id="eu_cookies_bar_privacy_policy_label"
+                                   value="<?php echo esc_attr( $this->settings->get_params( 'privacy_policy_label' ) ) ?>">
+                        </div>
+                        <div class="field">
+                            <label for="eu_cookies_bar_privacy_policy_color"><?php esc_html_e( 'Text color', 'eu-cookies-bar' ); ?></label>
+                            <input type="text" class="color-picker"
+                                   name="eu_cookies_bar_privacy_policy_color"
+                                   id="eu_cookies_bar_privacy_policy_color"
+                                   style="<?php if ( $this->settings->get_params( 'privacy_policy_color' ) ) {
+				                       echo esc_attr( 'background:' . $this->settings->get_params( 'privacy_policy_color' ) );
+			                       } ?>"
+                                   value="<?php echo esc_attr( $this->settings->get_params( 'privacy_policy_color' ) ); ?>">
+                        </div>
+                    </div>
+
                     <h4 class="vi-ui dividing header">
                         <label><?php esc_html_e( '"Accept" button design', 'eu-cookies-bar' ); ?></label>
                     </h4>
@@ -423,6 +517,14 @@ class EU_COOKIES_BAR_Admin_Admin {
                         </div>
                     </div>
                     <div class="field">
+                        <label ><?php esc_html_e( 'Icon, border, position... and more useful design setting', 'eu-cookies-bar' ); ?></label>
+                        <div class="vi-ui">
+                            <a class="vi-ui button yellow"
+                               href="https://villatheme.com/extensions/"
+                               target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                        </div>
+                    </div>
+                    <div class="field">
                         <label for="eu_cookies_bar_custom_css"><?php esc_html_e( 'Custom css', 'eu-cookies-bar' ); ?></label>
                         <textarea name="eu_cookies_bar_custom_css"
                                   id="eu_cookies_bar_custom_css"><?php echo esc_html( $this->settings->get_params( 'custom_css' ) ) ?></textarea>
@@ -454,41 +556,107 @@ class EU_COOKIES_BAR_Admin_Admin {
                                 </select>
                             </div>
                         </div>
+                        <div class="field">
+                            <label><?php esc_html_e( 'Side bar template', 'eu-cookies-bar' ); ?></label>
+                            <div class="vi-ui" data-tooltip="<?php esc_attr_e( 'Display user cookie setting by left or right side bar', 'eu-cookies-bar' ) ?>">
+                                <a class="vi-ui button yellow"
+                                   href="https://villatheme.com/extensions/"
+                                   target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label><?php esc_html_e( 'Floating icon', 'eu-cookies-bar' ); ?></label>
+                            <div class="vi-ui" data-tooltip="<?php esc_attr_e( 'Display cookie setting floating icon in conner of page', 'eu-cookies-bar' ) ?>">
+                                <a class="vi-ui button yellow"
+                                   href="https://villatheme.com/extensions/"
+                                   target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="equal width fields">
+                        <div class="field">
+                            <label for="eu_cookies_bar_display_delay"><?php esc_html_e( 'Display delay(second)', 'eu-cookies-bar' ); ?></label>
+                            <div class="vi-ui" data-tooltip="<?php esc_attr_e( 'Cookie bar will display after few delay second.', 'eu-cookies-bar' ) ?>">
+                                <input type="text" name="eu_cookies_bar_display_delay"
+                                       id="eu_cookies_bar_display_delay"
+                                       value="<?php echo esc_attr( htmlentities( $this->settings->get_params( 'display_delay' ) ) ); ?>">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="eu_cookies_bar_dismiss_timeout"><?php esc_html_e( 'Dismiss timeout(second)', 'eu-cookies-bar' ); ?></label>
+                            <div class="vi-ui" data-tooltip="<?php esc_attr_e( 'Cookie bar will hide after setting second.', 'eu-cookies-bar' ) ?>">
+                                <input type="text" name="eu_cookies_bar_dismiss_timeout"
+                                       id="eu_cookies_bar_dismiss_timeout"
+                                       value="<?php echo esc_attr( htmlentities( $this->settings->get_params( 'dismiss_timeout' ) ) ); ?>">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="eu_cookies_bar_conditional_tag"><?php esc_html_e( 'Conditional tag', 'eu-cookies-bar' ); ?></label>
+                            <div class="vi-ui" data-tooltip="<?php esc_attr_e( 'Display cookie bar con specific page.', 'eu-cookies-bar' ) ?>">
+                                <input type="text" name="eu_cookies_bar_conditional_tag"
+                                       id="eu_cookies_bar_conditional_tag"
+                                       value="<?php echo esc_attr( $this->settings->get_params( 'conditional_tag' ) ); ?>">
+                                <p class="description"><?php printf('%s<br>%s<a href="https://codex.wordpress.org/Conditional_Tags" target="_blank">%s</a>',
+			                            esc_html__('Adjust which pages will appear using WP\'s conditional tags.', 'eu-cookies-bar'),
+			                            esc_html__('Ex: is_home(), is_shop(), is_product(), is_cart(), is_checkout(),...', 'eu-cookies-bar'),
+			                            esc_html__('more', 'eu-cookies-bar') ) ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="equal width fields">
+                        <div class="field">
+                            <label for="eu_cookies_bar_user_cookies_settings_heading_title"><?php esc_html_e( 'Heading', 'eu-cookies-bar' ); ?></label>
+                            <div class="vi-ui">
+                                <input type="text" name="eu_cookies_bar_user_cookies_settings_heading_title"
+                                       id="eu_cookies_bar_user_cookies_settings_heading_title"
+                                       value="<?php echo esc_attr( htmlentities( $this->settings->get_params( 'user_cookies_settings_heading_title' ) ) ); ?>">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="eu_cookies_bar_user_cookies_settings_heading_color"><?php esc_html_e( 'Heading color', 'eu-cookies-bar' ); ?></label>
+                            <input type="text" class="color-picker"
+                                   name="eu_cookies_bar_user_cookies_settings_heading_color"
+                                   id="eu_cookies_bar_user_cookies_settings_heading_color"
+                                   style="<?php if ( $this->settings->get_params( 'user_cookies_settings_heading_color' ) ) {
+		                               echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_heading_color' ) );
+	                               } ?>"
+                                   value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_heading_color' ) ); ?>">
+                        </div>
+                        <div class="field">
+                            <label for="eu_cookies_bar_user_cookies_settings_heading_bg_color"><?php esc_html_e( 'Heading background color', 'eu-cookies-bar' ); ?></label>
+                            <div class="vi-ui">
+                                <input type="text" class="color-picker"
+                                       name="eu_cookies_bar_user_cookies_settings_heading_bg_color"
+                                       id="eu_cookies_bar_user_cookies_settings_heading_bg_color"
+                                       style="<?php if ( $this->settings->get_params( 'user_cookies_settings_heading_bg_color' ) ) {
+		                                   echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_heading_bg_color' ) );
+	                                   } ?>"
+                                       value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_heading_bg_color' ) ); ?>">
+                            </div>
+                        </div>
                     </div>
                     <div class="two fields">
                         <div class="field">
                             <div class="vi-ui grid">
                                 <div class="row">
                                     <div class="column">
-                                        <label for="eu_cookies_bar_user_cookies_settings_heading_title"><?php esc_html_e( 'Heading', 'eu-cookies-bar' ); ?></label>
-                                        <input type="text" name="eu_cookies_bar_user_cookies_settings_heading_title"
-                                               id="eu_cookies_bar_user_cookies_settings_heading_title"
-                                               value="<?php echo esc_attr( htmlentities( $this->settings->get_params( 'user_cookies_settings_heading_title' ) ) ); ?>">
-
+                                        <div class="field">
+                                        <label for="eu_cookies_bar_user_cookies_settings_button_save_enable"><?php esc_html_e( '"Save settings" button enable', 'eu-cookies-bar' ); ?></label>
+                                        </div>
+                                        <div class="vi-ui toggle checkbox">
+                                            <input type="checkbox" name="eu_cookies_bar_user_cookies_settings_button_save_enable" value="1"
+                                                   id="eu_cookies_bar_user_cookies_settings_button_save_enable" <?php checked( $this->settings->get_params( 'user_cookies_settings_button_save_enable' ), '1' ); ?>>
+                                            <label></label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="column">
-                                        <label for="eu_cookies_bar_user_cookies_settings_heading_color"><?php esc_html_e( 'Heading color', 'eu-cookies-bar' ); ?></label>
-                                        <input type="text" class="color-picker"
-                                               name="eu_cookies_bar_user_cookies_settings_heading_color"
-                                               id="eu_cookies_bar_user_cookies_settings_heading_color"
-                                               style="<?php if ( $this->settings->get_params( 'user_cookies_settings_heading_color' ) ) {
-											       echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_heading_color' ) );
-										       } ?>"
-                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_heading_color' ) ); ?>">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="column">
-                                        <label for="eu_cookies_bar_user_cookies_settings_heading_bg_color"><?php esc_html_e( 'Heading background color', 'eu-cookies-bar' ); ?></label>
-                                        <input type="text" class="color-picker"
-                                               name="eu_cookies_bar_user_cookies_settings_heading_bg_color"
-                                               id="eu_cookies_bar_user_cookies_settings_heading_bg_color"
-                                               style="<?php if ( $this->settings->get_params( 'user_cookies_settings_heading_bg_color' ) ) {
-											       echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_heading_bg_color' ) );
-										       } ?>"
-                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_heading_bg_color' ) ); ?>">
+                                        <label for="eu_cookies_bar_user_cookies_settings_button_save_label"><?php esc_html_e( '"Save settings" button label', 'eu-cookies-bar' ); ?></label>
+                                        <input type="text" name="eu_cookies_bar_user_cookies_settings_button_save_label"
+                                               id="eu_cookies_bar_user_cookies_settings_button_save_label"
+                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_button_save_label' ) ); ?>">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -513,6 +681,105 @@ class EU_COOKIES_BAR_Admin_Admin {
 											       echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_button_save_bg_color' ) );
 										       } ?>"
                                                value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_button_save_bg_color' ) ); ?>">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label for="eu_cookies_bar_user_cookies_settings_button_accept_enable"><?php esc_html_e( '"Accept" button enable', 'eu-cookies-bar' ); ?></label>
+                                        </div>
+                                        <div class="vi-ui toggle checkbox">
+                                            <input type="checkbox" name="eu_cookies_bar_user_cookies_settings_button_accept_enable" value="1"
+                                                   id="eu_cookies_bar_user_cookies_settings_button_accept_enable" <?php checked( $this->settings->get_params( 'user_cookies_settings_button_accept_enable' ), '1' ); ?>>
+                                            <label></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column">
+                                        <label for="eu_cookies_bar_user_cookies_settings_button_accept_label"><?php esc_html_e( '"Accept" button label', 'eu-cookies-bar' ); ?></label>
+                                        <input type="text" name="eu_cookies_bar_user_cookies_settings_button_accept_label"
+                                               id="eu_cookies_bar_user_cookies_settings_button_accept_label"
+                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_button_accept_label' ) ); ?>">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column">
+                                        <label for="eu_cookies_bar_user_cookies_settings_button_accept_color"><?php esc_html_e( '"Accept" button color', 'eu-cookies-bar' ); ?></label>
+                                        <input type="text" class="color-picker"
+                                               name="eu_cookies_bar_user_cookies_settings_button_accept_color"
+                                               id="eu_cookies_bar_user_cookies_settings_button_accept_color"
+                                               style="<?php if ( $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) ) {
+				                                   echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) );
+			                                   } ?>"
+                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) ); ?>">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column">
+                                        <label for="eu_cookies_bar_user_cookies_settings_button_accept_bg_color"><?php esc_html_e( '"Accept" button background color', 'eu-cookies-bar' ); ?></label>
+                                        <input type="text" class="color-picker"
+                                               name="eu_cookies_bar_user_cookies_settings_button_accept_bg_color"
+                                               id="eu_cookies_bar_user_cookies_settings_button_accept_bg_color"
+                                               style="<?php if ( $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) ) {
+				                                   echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) );
+			                                   } ?>"
+                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) ); ?>">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label for="eu_cookies_bar_user_cookies_settings_button_decline_enable"><?php esc_html_e( '"Decline" button enable', 'eu-cookies-bar' ); ?></label>
+                                        </div>
+                                        <div class="vi-ui toggle checkbox">
+                                            <input type="checkbox" name="eu_cookies_bar_user_cookies_settings_button_decline_enable" value="1"
+                                                   id="eu_cookies_bar_user_cookies_settings_button_decline_enable" <?php checked( $this->settings->get_params( 'user_cookies_settings_button_decline_enable' ), '1' ); ?>>
+                                            <label></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column">
+                                        <label for="eu_cookies_bar_user_cookies_settings_button_decline_label"><?php esc_html_e( '"Decline" button label', 'eu-cookies-bar' ); ?></label>
+                                        <input type="text" name="eu_cookies_bar_user_cookies_settings_button_decline_label"
+                                               id="eu_cookies_bar_user_cookies_settings_button_decline_label"
+                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_button_decline_label' ) ); ?>">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column">
+                                        <label for="eu_cookies_bar_user_cookies_settings_button_decline_color"><?php esc_html_e( '"Decline" button color', 'eu-cookies-bar' ); ?></label>
+                                        <input type="text" class="color-picker"
+                                               name="eu_cookies_bar_user_cookies_settings_button_decline_color"
+                                               id="eu_cookies_bar_user_cookies_settings_button_decline_color"
+                                               style="<?php if ( $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) ) {
+				                                   echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) );
+			                                   } ?>"
+                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) ); ?>">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column">
+                                        <label for="eu_cookies_bar_user_cookies_settings_button_decline_bg_color"><?php esc_html_e( '"Decline" button background color', 'eu-cookies-bar' ); ?></label>
+                                        <input type="text" class="color-picker"
+                                               name="eu_cookies_bar_user_cookies_settings_button_decline_bg_color"
+                                               id="eu_cookies_bar_user_cookies_settings_button_decline_bg_color"
+                                               style="<?php if ( $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) ) {
+				                                   echo esc_attr( 'background:' . $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) );
+			                                   } ?>"
+                                               value="<?php echo esc_attr( $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) ); ?>">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="column">
+                                        <label ><?php esc_html_e( 'Icon, border, position... and more useful design setting', 'eu-cookies-bar' ); ?></label>
+                                        <a class="vi-ui button yellow"
+                                           href="https://villatheme.com/extensions/"
+                                           target="_blank"><?php echo esc_html__( 'Unlock This Feature', 'eu-cookies-bar' ) ?></a>
                                     </div>
                                 </div>
                             </div>
@@ -561,10 +828,19 @@ class EU_COOKIES_BAR_Admin_Admin {
                                             </div>
                                         </div>
 
-                                        <span class="eu-cookies-bar-cookies-bar-settings-save-button"><?php esc_html_e( 'Save settings', 'eu-cookies-bar' ) ?></span>
-
-										<?php
-										?>
+	                                    <?php $btn_group_class = $this->settings->get_params('user_cookies_settings_button_decline_enable' ) ? 'eu-cookies-bar-popup-align-mid' : 'eu-cookies-bar-popup-align-end';
+	                                    $decline_class = $this->settings->get_params('user_cookies_settings_button_decline_enable' ) ? '' : 'eu-cookies-bar-cookies-bar-button-hide';
+	                                    $save_class = $this->settings->get_params('user_cookies_settings_button_save_enable' ) ? '' : 'eu-cookies-bar-cookies-bar-button-hide';
+	                                    $accept_class = $this->settings->get_params('user_cookies_settings_button_accept_enable' ) ? '' : 'eu-cookies-bar-cookies-bar-button-hide'; ?>
+                                        <div class="eu-cookies-bar-popup-setting-button <?php echo esc_attr( $btn_group_class ); ?>">
+                                            <div class="eu-cookies-bar-popup-setting-decline-button-wrap <?php echo esc_attr( $decline_class ); ?>">
+                                                <span class="eu-cookies-bar-cookies-bar-settings-decline-button"><?php echo esc_html( $this->settings->get_params( 'user_cookies_settings_button_decline_label' ) ) ?></span>
+                                            </div>
+                                            <div class="eu-cookies-bar-popup-setting-acc-button-wrap">
+                                                <span class="eu-cookies-bar-cookies-bar-settings-save-button <?php echo esc_attr( $save_class ); ?>"><?php echo esc_html( $this->settings->get_params( 'user_cookies_settings_button_save_label' ) ) ?></span>
+                                                <span class="eu-cookies-bar-cookies-bar-settings-accept-button <?php echo esc_attr( $accept_class ); ?>"><?php echo esc_html( $this->settings->get_params( 'user_cookies_settings_button_accept_label' ) ) ?></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -584,13 +860,13 @@ class EU_COOKIES_BAR_Admin_Admin {
 						<?php
 						if ( $this->settings->get_params( 'privacy_policy_url' ) ) {
 							?>
-                            <a target="_blank"
-                               href="<?php echo esc_url( $this->settings->get_params( 'privacy_policy_url' ) ) ?>"><?php esc_html_e( 'View more', 'eu-cookies-bar' ) ?></a>
+                            <a class="eu-cookies-bar-policy-button" target="_blank"
+                               href="<?php echo esc_url( $this->settings->get_params( 'privacy_policy_url' ) ) ?>"><?php echo esc_html( $this->settings->get_params( 'privacy_policy_label' ) ) ?></a>
 							<?php
 						} elseif ( get_option( 'wp_page_for_privacy_policy', '' ) ) {
 							?>
-                            <a target="_blank"
-                               href="<?php echo esc_url( get_page_link( (int) get_option( 'wp_page_for_privacy_policy', '' ) ) ) ?>"><?php esc_html_e( 'View more', 'eu-cookies-bar' ) ?></a>
+                            <a class="eu-cookies-bar-policy-button" target="_blank"
+                               href="<?php echo esc_url( get_page_link( (int) get_option( 'wp_page_for_privacy_policy', '' ) ) ) ?>"><?php echo esc_html( $this->settings->get_params( 'privacy_policy_label' ) ) ?></a>
 							<?php
 						}
 						?>
@@ -642,7 +918,6 @@ class EU_COOKIES_BAR_Admin_Admin {
 				'block_until_accept'                         => isset( $_POST['eu_cookies_bar_block_until_accept'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_block_until_accept'] ) : '',
 				'expire'                                     => isset( $_POST['eu_cookies_bar_expire'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_expire'] ) : '',
 				'privacy_policy'                             => isset( $_POST['eu_cookies_bar_privacy_policy'] ) ? wp_kses_post( stripslashes( $_POST['eu_cookies_bar_privacy_policy'] ) ) : '',
-				'privacy_policy_url'                         => isset( $_POST['eu_cookies_bar_privacy_policy_url'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_privacy_policy_url'] ) ) : '',
 				'strictly_necessary'                         => isset( $_POST['eu_cookies_bar_strictly_necessary'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_strictly_necessary'] ) : '',
 				'strictly_necessary_family'                  => isset( $_POST['eu_cookies_bar_strictly_necessary_family'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_strictly_necessary_family'] ) : '',
 				'cookies_bar_message'                        => isset( $_POST['eu_cookies_bar_cookies_bar_message'] ) ? wp_kses_post( stripslashes( $_POST['eu_cookies_bar_cookies_bar_message'] ) ) : '',
@@ -668,12 +943,30 @@ class EU_COOKIES_BAR_Admin_Admin {
 				'cookies_bar_padding'                        => isset( $_POST['eu_cookies_bar_cookies_bar_padding'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_cookies_bar_padding'] ) : '',
 				'cookies_bar_margin'                         => isset( $_POST['eu_cookies_bar_cookies_bar_margin'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_cookies_bar_margin'] ) : '',
 				'cookies_bar_opacity'                        => isset( $_POST['eu_cookies_bar_cookies_bar_opacity'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_cookies_bar_opacity'] ) : '',
+				'bar_btn_padding'                            => isset( $_POST['eu_cookies_bar_bar_btn_padding'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_bar_btn_padding'] ) ) : '',
+				'bar_btn_radius'                             => isset( $_POST['eu_cookies_bar_bar_btn_radius'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_bar_btn_radius'] ) ) : '',
+				'privacy_policy_url'                         => isset( $_POST['eu_cookies_bar_privacy_policy_url'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_privacy_policy_url'] ) ) : '',
+				'privacy_policy_label'                       => isset( $_POST['eu_cookies_bar_privacy_policy_label'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_privacy_policy_label'] ) ) : '',
+				'privacy_policy_color'                       => isset( $_POST['eu_cookies_bar_privacy_policy_color'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_privacy_policy_color'] ) ) : '',
+				'display_delay'                              => isset( $_POST['eu_cookies_bar_display_delay'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_display_delay'] ) ) : '',
+				'dismiss_timeout'                            => isset( $_POST['eu_cookies_bar_dismiss_timeout'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_dismiss_timeout'] ) ) : '',
+				'conditional_tag'                            => isset( $_POST['eu_cookies_bar_conditional_tag'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_conditional_tag'] ) ) : '',
 				'user_cookies_settings_enable'               => isset( $_POST['eu_cookies_bar_user_cookies_settings_enable'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_enable'] ) : '',
 				'user_cookies_settings_heading_title'        => isset( $_POST['eu_cookies_bar_user_cookies_settings_heading_title'] ) ? stripslashes( sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_heading_title'] ) ) : '',
 				'user_cookies_settings_heading_color'        => isset( $_POST['eu_cookies_bar_user_cookies_settings_heading_color'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_heading_color'] ) : '',
 				'user_cookies_settings_heading_bg_color'     => isset( $_POST['eu_cookies_bar_user_cookies_settings_heading_bg_color'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_heading_bg_color'] ) : '',
+				'user_cookies_settings_button_save_enable'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_save_enable'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_save_enable'] ) : '',
+				'user_cookies_settings_button_save_label'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_save_label'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_save_label'] ) : '',
 				'user_cookies_settings_button_save_color'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_save_color'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_save_color'] ) : '',
 				'user_cookies_settings_button_save_bg_color' => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_save_bg_color'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_save_bg_color'] ) : '',
+				'user_cookies_settings_button_accept_enable'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_accept_enable'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_accept_enable'] ) : '',
+				'user_cookies_settings_button_accept_label'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_accept_label'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_accept_label'] ) : '',
+				'user_cookies_settings_button_accept_color'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_accept_color'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_accept_color'] ) : '',
+				'user_cookies_settings_button_accept_bg_color' => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_accept_bg_color'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_accept_bg_color'] ) : '',
+				'user_cookies_settings_button_decline_enable'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_decline_enable'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_decline_enable'] ) : '',
+				'user_cookies_settings_button_decline_label'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_decline_label'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_decline_label'] ) : '',
+				'user_cookies_settings_button_decline_color'    => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_decline_color'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_decline_color'] ) : '',
+				'user_cookies_settings_button_decline_bg_color' => isset( $_POST['eu_cookies_bar_user_cookies_settings_button_decline_bg_color'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_button_decline_bg_color'] ) : '',
 				'user_cookies_settings_bar_position'         => isset( $_POST['eu_cookies_bar_user_cookies_settings_bar_position'] ) ? sanitize_text_field( $_POST['eu_cookies_bar_user_cookies_settings_bar_position'] ) : '',
 				'custom_css'                                 => isset( $_POST['eu_cookies_bar_custom_css'] ) ? wp_kses_post( stripslashes( $_POST['eu_cookies_bar_custom_css'] ) ) : '',
 			);
@@ -690,7 +983,8 @@ class EU_COOKIES_BAR_Admin_Admin {
 	    if ( isset( $_REQUEST['eu_cookies_bar_nonce_field'] ) && ! wp_verify_nonce( sanitize_text_field( $_REQUEST['eu_cookies_bar_nonce_field'] ), 'eu_cookies_bar_settings_page_save' ) ) {
 	        return;
         }
-		wp_enqueue_style( 'eu-cookies-bar-icons', EU_COOKIES_BAR_CSS . 'eu-cookies-bar-icons.css', array(), EU_COOKIES_BAR_VERSION );
+		$src_min = WP_DEBUG ? '' : '.min';
+		wp_enqueue_style( 'eu-cookies-bar-icons', EU_COOKIES_BAR_CSS . 'eu-cookies-bar-icons' . $src_min . '.css', array(), EU_COOKIES_BAR_VERSION );
 		$page = isset( $_REQUEST['page'] ) ? sanitize_text_field( $_REQUEST['page'] ) : '';
 		if ( $page == 'eu-cookies-bar' ) {
 			global $wp_scripts;
@@ -717,7 +1011,7 @@ class EU_COOKIES_BAR_Admin_Admin {
 			}
 			/*Stylesheet*/
 			wp_enqueue_style( 'eu-cookies-bar-semantic', EU_COOKIES_BAR_CSS . 'semantic.min.css', [], '2.3.1' );
-			wp_enqueue_style( 'eu-cookies-bar-admin-css', EU_COOKIES_BAR_CSS . 'eu-cookies-bar-admin.css', [], EU_COOKIES_BAR_VERSION );
+			wp_enqueue_style( 'eu-cookies-bar-admin-css', EU_COOKIES_BAR_CSS . 'eu-cookies-bar-admin' . $src_min . '.css', [], EU_COOKIES_BAR_VERSION );
 			$css = '.eu-cookies-bar-cookies-bar-wrap{';
 			if ( $this->settings->get_params( 'cookies_bar_font_size' ) ) {
 				$css .= 'font-size:' . $this->settings->get_params( 'cookies_bar_font_size' ) . 'px;';
@@ -738,6 +1032,22 @@ class EU_COOKIES_BAR_Admin_Admin {
 			$background = ( $this->settings->get_params( 'cookies_bar_bg_color' ) !== '' ) ? ( $this->settings->get_params( 'cookies_bar_bg_color' ) ) : '#000000';
 			$css        .= 'background:' . eu_cookies_bar_hex2rgba( $background, $opacity ) . ';';
 			$css        .= '}';
+
+			if ( $this->settings->get_params( 'bar_btn_radius' ) || $this->settings->get_params( 'bar_btn_padding' ) ) {
+				$css .= '.eu-cookies-bar-cookies-bar-button-wrap .eu-cookies-bar-cookies-bar-button{';
+				if ( $this->settings->get_params( 'bar_btn_padding' ) ) {
+					$css .= 'padding:' . $this->settings->get_params( 'bar_btn_padding' ) . 'px;';
+				}
+				if ( $this->settings->get_params( 'bar_btn_radius' ) ) {
+					$css .= 'border-radius:' . $this->settings->get_params( 'bar_btn_radius' ) . 'px;';
+				}
+				$css .= '}';
+			}
+			if ( $this->settings->get_params( 'privacy_policy_color' ) ) {
+				$css .= '.eu-cookies-bar-policy-button{';
+				$css .= 'color:' . $this->settings->get_params( 'privacy_policy_color' ) . ';';
+				$css .= '}';
+			}
 
 			$css .= '.eu-cookies-bar-cookies-bar-button-accept{';
 			if ( $this->settings->get_params( 'cookies_bar_button_accept_color' ) ) {
@@ -779,6 +1089,29 @@ class EU_COOKIES_BAR_Admin_Admin {
 				$css .= 'background:' . $this->settings->get_params( 'user_cookies_settings_button_save_bg_color' ) . ';';
 			}
 			$css .= '}';
+
+			if ( $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) || $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) ) {
+				$css .= '.eu-cookies-bar-cookies-bar-settings-accept-button{';
+				if ( $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) ) {
+					$css .= 'color:' . $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) . ';';
+				}
+				if ( $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) ) {
+					$css .= 'background:' . $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) . ';';
+				}
+				$css .= '}';
+			}
+
+			if ( $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) || $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) ) {
+				$css .= '.eu-cookies-bar-cookies-bar-settings-decline-button{';
+				if ( $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) ) {
+					$css .= 'color:' . $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) . ';';
+				}
+				if ( $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) ) {
+					$css .= 'background:' . $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) . ';';
+				}
+				$css .= '}';
+			}
+
 			/*custom css*/
 			if ( $this->settings->get_params( 'custom_css' ) ) {
 				$css .= $this->settings->get_params( 'custom_css' );
@@ -786,7 +1119,7 @@ class EU_COOKIES_BAR_Admin_Admin {
 			wp_add_inline_style( 'eu-cookies-bar-admin-css', $css );
 			wp_enqueue_script( 'eu-cookies-bar-semantic', EU_COOKIES_BAR_JS . 'semantic.min.js', array( 'jquery' ), '2.3.1', false );
 			wp_enqueue_script( 'eu-cookies-bar-address', EU_COOKIES_BAR_JS . 'jquery.address-1.6.min.js', array( 'jquery' ), '1.6', false );
-			wp_enqueue_script( 'eu-cookies-bar-admin-js', EU_COOKIES_BAR_JS . 'eu-cookies-bar-admin.js', array( 'jquery' ), EU_COOKIES_BAR_VERSION , false);
+			wp_enqueue_script( 'eu-cookies-bar-admin-js', EU_COOKIES_BAR_JS . 'eu-cookies-bar-admin' . $src_min . '.js', array( 'jquery' ), EU_COOKIES_BAR_VERSION , false);
 			/*Color picker*/
 			wp_enqueue_script(
 				'iris', admin_url( 'js/iris.min.js' ), array(

@@ -158,8 +158,9 @@ class EU_COOKIES_BAR_Frontend_Frontend {
 		if ( ! $this->settings->get_params( 'enable' ) ) {
 			return;
 		}
-		wp_enqueue_style( 'eu-cookies-bar-icons', EU_COOKIES_BAR_CSS . 'eu-cookies-bar-icons.css', array(), EU_COOKIES_BAR_VERSION );
-		wp_enqueue_style( 'eu-cookies-bar-style', EU_COOKIES_BAR_CSS . 'eu-cookies-bar.css', array(), EU_COOKIES_BAR_VERSION );
+		$src_min = WP_DEBUG ? '' : '.min';
+		wp_enqueue_style( 'eu-cookies-bar-icons', EU_COOKIES_BAR_CSS . 'eu-cookies-bar-icons' . $src_min . '.css', array(), EU_COOKIES_BAR_VERSION );
+		wp_enqueue_style( 'eu-cookies-bar-style', EU_COOKIES_BAR_CSS . 'eu-cookies-bar' . $src_min . '.css', array(), EU_COOKIES_BAR_VERSION );
 		$css = '';
 		if ( ! isset( $_COOKIE['eu_cookies_bar'] ) ) {
 			$css .= '.eu-cookies-bar-cookies-bar-wrap{';
@@ -182,6 +183,21 @@ class EU_COOKIES_BAR_Frontend_Frontend {
 			$background = ( $this->settings->get_params( 'cookies_bar_bg_color' ) !== '' ) ? ( $this->settings->get_params( 'cookies_bar_bg_color' ) ) : '#000000';
 			$css        .= 'background:' . eu_cookies_bar_hex2rgba( $background, $opacity ) . ';';
 			$css        .= '}';
+			if ( $this->settings->get_params( 'bar_btn_radius' ) || $this->settings->get_params( 'bar_btn_padding' ) ) {
+				$css .= '.eu-cookies-bar-cookies-bar-button-wrap .eu-cookies-bar-cookies-bar-button{';
+				if ( $this->settings->get_params( 'bar_btn_padding' ) ) {
+					$css .= 'padding:' . $this->settings->get_params( 'bar_btn_padding' ) . 'px;';
+				}
+				if ( $this->settings->get_params( 'bar_btn_radius' ) ) {
+					$css .= 'border-radius:' . $this->settings->get_params( 'bar_btn_radius' ) . 'px;';
+				}
+				$css .= '}';
+			}
+			if ( $this->settings->get_params( 'privacy_policy_color' ) ) {
+				$css .= '.eu-cookies-bar-policy-button{';
+                $css .= 'color:' . $this->settings->get_params( 'privacy_policy_color' ) . ';';
+				$css .= '}';
+			}
 			if ( $this->settings->get_params( 'cookies_bar_show_button_accept' ) ) {
 				$css .= '.eu-cookies-bar-cookies-bar-button-accept{';
 				if ( $this->settings->get_params( 'cookies_bar_button_accept_color' ) ) {
@@ -218,20 +234,45 @@ class EU_COOKIES_BAR_Frontend_Frontend {
 				$css .= 'background:' . $this->settings->get_params( 'user_cookies_settings_heading_bg_color' ) . ';';
 			}
 			$css .= '}';
-			$css .= '.eu-cookies-bar-cookies-bar-settings-save-button{';
-			if ( $this->settings->get_params( 'user_cookies_settings_button_save_color' ) ) {
-				$css .= 'color:' . $this->settings->get_params( 'user_cookies_settings_button_save_color' ) . ';';
+
+			if ( $this->settings->get_params( 'user_cookies_settings_button_save_color' ) || $this->settings->get_params( 'user_cookies_settings_button_save_bg_color' ) ) {
+				$css .= '.eu-cookies-bar-cookies-bar-settings-save-button{';
+				if ( $this->settings->get_params( 'user_cookies_settings_button_save_color' ) ) {
+					$css .= 'color:' . $this->settings->get_params( 'user_cookies_settings_button_save_color' ) . ';';
+				}
+				if ( $this->settings->get_params( 'user_cookies_settings_button_save_bg_color' ) ) {
+					$css .= 'background:' . $this->settings->get_params( 'user_cookies_settings_button_save_bg_color' ) . ';';
+				}
+				$css .= '}';
 			}
-			if ( $this->settings->get_params( 'user_cookies_settings_button_save_bg_color' ) ) {
-				$css .= 'background:' . $this->settings->get_params( 'user_cookies_settings_button_save_bg_color' ) . ';';
+
+			if ( $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) || $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) ) {
+				$css .= '.eu-cookies-bar-cookies-bar-settings-accept-button{';
+				if ( $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) ) {
+					$css .= 'color:' . $this->settings->get_params( 'user_cookies_settings_button_accept_color' ) . ';';
+				}
+				if ( $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) ) {
+					$css .= 'background:' . $this->settings->get_params( 'user_cookies_settings_button_accept_bg_color' ) . ';';
+				}
+				$css .= '}';
 			}
-			$css .= '}';
+
+			if ( $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) || $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) ) {
+				$css .= '.eu-cookies-bar-cookies-bar-settings-decline-button{';
+				if ( $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) ) {
+					$css .= 'color:' . $this->settings->get_params( 'user_cookies_settings_button_decline_color' ) . ';';
+				}
+				if ( $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) ) {
+					$css .= 'background:' . $this->settings->get_params( 'user_cookies_settings_button_decline_bg_color' ) . ';';
+				}
+				$css .= '}';
+			}
 		}
 		if ( $this->settings->get_params( 'custom_css' ) ) {
 			$css .= $this->settings->get_params( 'custom_css' );
 		}
 		wp_add_inline_style( 'eu-cookies-bar-style', $css );
-		wp_enqueue_script( 'eu-cookies-bar-script', EU_COOKIES_BAR_JS . 'eu-cookies-bar.js', array( 'jquery' ), EU_COOKIES_BAR_VERSION, false );
+		wp_enqueue_script( 'eu-cookies-bar-script', EU_COOKIES_BAR_JS . 'eu-cookies-bar' . $src_min . '.js', array( 'jquery' ), EU_COOKIES_BAR_VERSION, false );
 		$strictly_necessary        = $this->settings->get_params( 'strictly_necessary' ) ? explode( ',', $this->settings->get_params( 'strictly_necessary' ) ) : array();
 		$strictly_necessary        = array_unique( array_map( 'trim', $strictly_necessary ) );
 		$strictly_necessary_family = $this->settings->get_params( 'strictly_necessary_family' ) ? explode( ',', $this->settings->get_params( 'strictly_necessary_family' ) ) : array();
@@ -241,6 +282,8 @@ class EU_COOKIES_BAR_Frontend_Frontend {
 			'cookies_bar_on_scroll'        => $this->settings->get_params( 'cookies_bar_on_scroll' ),
 			'cookies_bar_on_page_redirect' => $this->settings->get_params( 'cookies_bar_on_page_redirect' ),
 			'block_until_accept'           => $this->settings->get_params( 'block_until_accept' ),
+			'display_delay'                => $this->settings->get_params( 'display_delay' ) ?? 0,
+			'dismiss_timeout'              => $this->settings->get_params( 'dismiss_timeout' ),
 			'strictly_necessary'           => $strictly_necessary,
 			'strictly_necessary_family'    => $strictly_necessary_family,
 			'expire_time'                  => current_time( 'timestamp', true ) + 86400 * absint( $this->settings->get_params( 'expire' ) ),
@@ -250,8 +293,10 @@ class EU_COOKIES_BAR_Frontend_Frontend {
 	}
 
 	public function cookies_bar_html() {
-
 		if ( ! $this->settings->get_params( 'enable' ) ) {
+			return;
+		}
+		if ( ! $this->settings->assign_page() ) {
 			return;
 		}
 		if ( ! isset( $_COOKIE['eu_cookies_bar'] ) ) {
@@ -265,13 +310,13 @@ class EU_COOKIES_BAR_Frontend_Frontend {
 							<?php
 							if ( $this->settings->get_params( 'privacy_policy_url' ) ) {
 								?>
-                                <a target="_blank"
-                                   href="<?php echo esc_url( $this->settings->get_params( 'privacy_policy_url' ) ) ?>"><?php esc_html_e( 'View more', 'eu-cookies-bar' ) ?></a>
+                                <a class="eu-cookies-bar-policy-button" target="_blank"
+                                   href="<?php echo esc_url( $this->settings->get_params( 'privacy_policy_url' ) ) ?>"><?php echo esc_html( $this->settings->get_params( 'privacy_policy_label' ) ) ?></a>
 								<?php
 							} elseif ( get_option( 'wp_page_for_privacy_policy', '' ) ) {
 								?>
-                                <a target="_blank"
-                                   href="<?php echo esc_url( get_page_link( (int) get_option( 'wp_page_for_privacy_policy', '' ) ) ) ?>"><?php esc_html_e( 'View more', 'eu-cookies-bar' ) ?></a>
+                                <a class="eu-cookies-bar-policy-button" target="_blank"
+                                   href="<?php echo esc_url( get_page_link( (int) get_option( 'wp_page_for_privacy_policy', '' ) ) ) ?>"><?php echo esc_html( $this->settings->get_params( 'privacy_policy_label' ) ) ?></a>
 								<?php
 							}
 							?>
@@ -526,9 +571,24 @@ class EU_COOKIES_BAR_Frontend_Frontend {
 								<?php echo do_shortcode( $this->settings->get_params( 'privacy_policy' ) ) ?>
                             </div>
                         </div>
-
-                        <span class="eu-cookies-bar-cookies-bar-settings-save-button"><?php esc_html_e( 'Save settings', 'eu-cookies-bar' ) ?></span>
-
+                        <?php $class_btn_group = $this->settings->get_params('user_cookies_settings_button_decline_enable' ) ? 'eu-cookies-bar-popup-align-mid' : 'eu-cookies-bar-popup-align-end'; ?>
+                        <div class="eu-cookies-bar-popup-setting-button <?php echo esc_attr( $class_btn_group ); ?>">
+                            <?php if ( $this->settings->get_params('user_cookies_settings_button_decline_enable' ) ) { ?>
+                            <div class="eu-cookies-bar-popup-setting-decline-button-wrap">
+                                <span class="eu-cookies-bar-cookies-bar-settings-decline-button"><?php echo esc_html( $this->settings->get_params( 'user_cookies_settings_button_decline_label' ) ) ?></span>
+                            </div>
+                            <?php } ?>
+                            <?php if ( $this->settings->get_params('user_cookies_settings_button_save_enable' ) || $this->settings->get_params('user_cookies_settings_button_accept_enable' ) ) { ?>
+                            <div class="eu-cookies-bar-popup-setting-acc-button-wrap">
+			                    <?php if ( $this->settings->get_params('user_cookies_settings_button_save_enable' ) ) { ?>
+                                <span class="eu-cookies-bar-cookies-bar-settings-save-button"><?php echo esc_html( $this->settings->get_params( 'user_cookies_settings_button_save_label' ) ) ?></span>
+			                    <?php } ?>
+			                    <?php if ( $this->settings->get_params('user_cookies_settings_button_accept_enable' ) ) { ?>
+                                <span class="eu-cookies-bar-cookies-bar-settings-accept-button"><?php echo esc_html( $this->settings->get_params( 'user_cookies_settings_button_accept_label' ) ) ?></span>
+			                    <?php } ?>
+                            </div>
+                            <?php } ?>
+                        </div>
 						<?php
 						?>
                     </div>
