@@ -1,3 +1,7 @@
+/*1.0.20 - 2026.01.20*/
+- Updated: Compatible with WP 6.9
+– Updated: Update support class
+
 /*1.0.19 - 2025.08.28*/
 - Updated: Minify some source code
 - Updated: Add some option from premium version

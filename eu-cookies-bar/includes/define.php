@@ -7,12 +7,13 @@ define( 'EU_COOKIES_BAR_ADMIN', EU_COOKIES_BAR_DIR . "admin" . DIRECTORY_SEPARAT
 define( 'EU_COOKIES_BAR_FRONTEND', EU_COOKIES_BAR_DIR . "frontend" . DIRECTORY_SEPARATOR );
 define( 'EU_COOKIES_BAR_LANGUAGES', EU_COOKIES_BAR_DIR . "languages" . DIRECTORY_SEPARATOR );
 define( 'EU_COOKIES_BAR_INCLUDES', EU_COOKIES_BAR_DIR . "includes" . DIRECTORY_SEPARATOR );
-
-define( 'EU_COOKIES_BAR_CSS', WP_PLUGIN_URL . "/eu-cookies-bar/css/" );
+$euccb_plugin_url = plugins_url( '', __FILE__ );
+$euccb_plugin_url = str_replace( '/includes', '/', $euccb_plugin_url );
+define( 'EU_COOKIES_BAR_CSS', $euccb_plugin_url . 'css/' );
 define( 'EU_COOKIES_BAR_CSS_DIR', EU_COOKIES_BAR_DIR . "css" . DIRECTORY_SEPARATOR );
-define( 'EU_COOKIES_BAR_JS', WP_PLUGIN_URL . "/eu-cookies-bar/js/" );
+define( 'EU_COOKIES_BAR_JS', $euccb_plugin_url . 'js/' );
 define( 'EU_COOKIES_BAR_JS_DIR', EU_COOKIES_BAR_DIR . "js" . DIRECTORY_SEPARATOR );
-define( 'EU_COOKIES_BAR_IMAGES', WP_PLUGIN_URL . "/eu-cookies-bar/images/" );
+define( 'EU_COOKIES_BAR_IMAGES', $euccb_plugin_url . 'images/' );
 
 
 /*Include functions file*/
