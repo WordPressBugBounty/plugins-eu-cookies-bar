@@ -289,6 +289,9 @@ EU Cookies Bar is a WordPress plugin that helps website owners to meet the oblig
 4. Setting popup list of category
 
 == Changelog ==
+/*1.0.21 - 2026.03.06*/
+- Updated: Only specific conditional tags are supported.
+
 /*1.0.20 - 2026.01.20*/
 - Updated: Compatible with WP 6.9
 – Updated: Update support class
